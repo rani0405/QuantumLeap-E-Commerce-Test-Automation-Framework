@@ -73,8 +73,3 @@ REST Assured is used for easy API automation.
 Author
 Rani Suresh Nikhade
 Beginner QA Automation Engineer
-
-
-If you want, I can also **create a ready-to-use version with badges, screenshots, and instructions for beginners** so it looks professional on GitHub.  
-
-Do you want me to do that?
