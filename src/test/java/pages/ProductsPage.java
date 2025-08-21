@@ -23,12 +23,6 @@ public class ProductsPage {
 	public void addFirstProductToCart() {
 		driver.findElement(firstAddToCartBtn).click();
 	}
-	 // Method to add product by name
-    public void addProductToCart(String productName) {
-       // Button locator is dynamic: based on product name
-        String locator = "//div[text()='" + productName + "']/ancestor::div[@class='inventory_item']//button";
-        driver.findElement(By.xpath(locator)).click();
-    }
 
 	// Method to go to cart
     public void goToCart() {

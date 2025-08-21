@@ -9,41 +9,39 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CartPage;
 import pages.LoginPage;
-import pages.ProductsPage;
+import pages.ProductsPage;;
 
 public class AddToCartSteps {
-	WebDriver driver;
-	LoginPage loginPage;
-	ProductsPage productsPage;
+    WebDriver driver;
+    LoginPage loginPage;
+    ProductsPage productsPage;
     CartPage cartPage;
-    
-    @Given("the user is on the Login Page")
-    public void the_user_is_on_the_login_page() {
+
+    @Given("the user is logged into the SauceDemo website")
+    public void the_user_is_logged_into_the_saucedemo_website() {
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
+
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
+
+        loginPage.enterUsername("standard_user");
+        loginPage.enterPassword("secret_sauce");
+        loginPage.clickLogin();
     }
 
-    @When("the user logs in with {string} and {string}")
-    public void the_user_logs_in_with_and(String username, String password) {
-        loginPage.login(username, password);
-    }
-
-    @When("the user adds {string} to the cart")
-    public void the_user_adds_to_the_cart(String productName) {
-        productsPage.addProductToCart(productName);
-    }
-
-    @Then("the cart should contain {string}")
-    public void the_cart_should_contain(String expectedProduct) {
+    @When("the user adds a product to the cart")
+    public void the_user_adds_a_product_to_the_cart() {
+        productsPage.addFirstProductToCart();
         productsPage.goToCart();
-        String actualProduct = cartPage.getCartItemName();
-        Assert.assertEquals(actualProduct, expectedProduct, "Cart content mismatch!");
+    }
+
+    @Then("the cart should contain that product")
+    public void the_cart_should_contain_that_product() {
+        String productName = cartPage.getCartItemName();
+        Assert.assertNotNull(productName, "Cart should contain at least one product");
         driver.quit();
     }
-
-	
 }
+

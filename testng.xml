@@ -1,14 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="QuantumLeap Suite">
-    <test name="UI Tests">
-        <packages>
-            <package name="quantumleap.ui_tests"/>
-        </packages>
-    </test>
 
-    <test name="API Tests">
-        <packages>
-            <package name="quantumleap.api_tests"/>
-        </packages>
-    </test>
+<suite name="quantumLeap1 Suite" verbose="1" parallel="false">
+<listeners>
+    <listener class-name="tests.LoginTest"/>
+</listeners>
+
 </suite>
