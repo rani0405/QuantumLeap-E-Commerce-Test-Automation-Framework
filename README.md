@@ -51,25 +51,6 @@ QuantumLeap-TestAutomation/
 ├── reports/
 └── docs/
 
-## How to Run
-
-1. **Clone the repository**
-git clone https://github.com/yourusername/QuantumLeap-TestAutomation.git
-
-Reporting
-Reports will be generated automatically in the reports/ folder.
-
-Screenshots are saved for failed UI tests.
-
-Notes for Beginners
-The framework uses Page Object Model for maintainability.
-
-All reusable code is in utils/.
-
-Cucumber step definitions call Page Object methods for reusability.
-
-REST Assured is used for easy API automation.
-
-Author
+## Author
 Rani Suresh Nikhade
 Beginner QA Automation Engineer
